@@ -1,0 +1,30 @@
+{
+  "name": "sarh-orders-console",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.9.1",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "test": "pnpm -r test",
+    "prove:no-duplicates": "pnpm --filter @sarh/api prove:no-duplicates",
+    "db:setup": "pnpm --filter @sarh/api db:setup",
+    "db:migrate": "pnpm --filter @sarh/api db:migrate",
+    "db:seed": "pnpm --filter @sarh/api db:seed",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.2"
+  }
+}

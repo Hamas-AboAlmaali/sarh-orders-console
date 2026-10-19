@@ -1,0 +1,10 @@
+# Optional: only for machines without a local PostgreSQL.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: sarh
+      POSTGRES_PASSWORD: sarh
+      POSTGRES_DB: sarh_orders
+    ports:
+      - "5432:5432"

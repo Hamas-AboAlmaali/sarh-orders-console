@@ -1,0 +1,3 @@
+pnpm-lock.yaml
+.pnpm-store/
+apps/api/drizzle/meta/
