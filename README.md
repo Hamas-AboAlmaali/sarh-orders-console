@@ -39,7 +39,7 @@ larger set.
 ## Tests and checks
 
 ```bash
-pnpm test                     # 61 API tests + 36 web tests
+pnpm test                     # 66 API tests + 36 web tests
 pnpm prove:no-duplicates      # R2 proof against the running API (pnpm dev); add --parallel 50
 pnpm typecheck && pnpm lint && pnpm format:check
 ```
@@ -95,7 +95,8 @@ reasoning and its limits are in [DECISIONS.md](DECISIONS.md#1-r2-idempotency-key
 | 11  | An unknown email answers faster than a wrong password, so response time reveals which emails exist.                   | Unknown emails are checked against a dummy hash; both cases return the same 401 and message.                                     |
 | 12  | The delete route does not validate `id` and answers `ok: true` even when nothing was deleted.                         | `id` is validated (400), a missing order is 404, success is 204.                                                                 |
 
-Each fix has a test in `apps/api/test/auth.test.ts`, including tokens signed with the old secret,
+Each fix has a test in `apps/api/test/auth.test.ts` or, for password hashing,
+`apps/api/test/password.test.ts`, including tokens signed with the old secret,
 `alg: none`, expired tokens, and a valid token sent the old ways. Restoring `jwt.decode` and removing
 `requireRole` made five of them fail.
 
